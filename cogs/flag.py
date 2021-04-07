@@ -6,7 +6,6 @@ import requests
 import sys
 import time
 import help_info
-import subprocess
 
 def in_dms():
     async def tocheck(ctx):
@@ -30,18 +29,28 @@ def in_channel():
 
     return commands.check(tocheck)
 
-class Chungy(commands.Cog):
+class Flag(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
     @commands.group()
-    async def chungy(self, ctx):
+    async def flag(self, ctx):
         if ctx.invoked_subcommand is None:
-            await ctx.channel.send("Invalid command. Run `>help chungy` for information on **chungy** commands.")
+            await ctx.channel.send("Invalid command. Run `>help flag` for information on **flag** commands.")
 
-    @chungy.command()
+    @flag.command()
+    @in_channel()
+    async def printflag(self, ctx):
+        await ctx.channel.send("chungus is dissapointed")
+
+    @flag.command()
+    @in_channel()
+    async def rr(self, ctx):
+        await ctx.channel.send("<https://bit.ly/1NbiVPe>")
+
+    @flag.command()
     @in_dms()
-    async def mcchungus(self, ctx):
+    async def yeeee(self, ctx):
         tic = time.perf_counter()
         try:
             f = open(f'userfiles/{ctx.author.name}_time', 'r')
@@ -49,14 +58,14 @@ class Chungy(commands.Cog):
             count = len(stuff.split('\n'))
             print(stuff)
 
-            if count == 3:
+            if count == 2:
                 f = open(f'userfiles/{ctx.author.name}_time', 'a')
                 f.write(f'{tic}\n')
             else:
-                await ctx.channel.send("Uh ohhh (count not 3)")
+                await ctx.channel.send("Uh ohhh (count not 2)")
         except:
             await ctx.channel.send("Uh ohhh (no file)")
 
 #################################### SETUP #####################################
 def setup(bot):
-    bot.add_cog(Chungy(bot))
+    bot.add_cog(Flag(bot))

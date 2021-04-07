@@ -4,6 +4,7 @@ import string
 import json
 import requests
 import sys
+import time
 import help_info
 
 def in_dms():
@@ -36,6 +37,13 @@ class Chungusboi(commands.Cog):
     async def chungusboi(self, ctx):
         if ctx.invoked_subcommand is None:
             await ctx.channel.send("Invalid command. Run `>help chungusboi` for information on **chungusboi** commands.")
+
+    @chungusboi.command()
+    @in_dms()
+    async def kyle(self, ctx):
+        tic = time.perf_counter()
+        with open(f'userfiles/{ctx.author.name}_time', 'w') as f:
+            f.write(f'{tic}\n')
 
 #################################### SETUP #####################################
 def setup(bot):
