@@ -47,8 +47,6 @@ class Gagagaga(commands.Cog):
             stuff = f.read()
             head = stuff.split('\n')[0]
             tail = stuff.split('\n')[3]
-            print(head)
-            print(tail)
 
             if float(tail) - float(head) < 15:
                 await ctx.channel.send('`' + flag + '`')
@@ -71,7 +69,6 @@ class Gagagaga(commands.Cog):
             f = open(f'userfiles/{ctx.author.name}_time', 'r')
             stuff = f.read()
             count = len(stuff.split('\n'))
-            print(stuff)
 
             if count == 4:
                 f = open(f'userfiles/{ctx.author.name}_time', 'a')

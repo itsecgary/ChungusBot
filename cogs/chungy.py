@@ -47,7 +47,6 @@ class Chungy(commands.Cog):
             f = open(f'userfiles/{ctx.author.name}_time', 'r')
             stuff = f.read()
             count = len(stuff.split('\n'))
-            print(stuff)
 
             if count == 3:
                 f = open(f'userfiles/{ctx.author.name}_time', 'a')
