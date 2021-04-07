@@ -17,7 +17,7 @@ async def on_ready():
     print(f"|  {bot.user.name} - Online   |")
     print(f"|  discord.py {discord.__version__}  |")
     print("|--------------------|")
-    await bot.change_presence(status=discord.Status.online)
+    await bot.change_presence(status=discord.Status.online, activity=discord.Game(name="Check out my code"))
 
 @bot.event # Displays error messages
 async def on_command_error(ctx, error):
