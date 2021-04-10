@@ -41,7 +41,7 @@ async def on_command_error(ctx, error):
 
 @bot.event
 async def on_message(ctx):
-    #if str(ctx.channel.type) == "private" or str(ctx.guild.id) == '734854267847966720' or ctx.channel.name == 'ctf-bot-dev':
+    if str(ctx.channel.type) == "private" or ctx.channel.name == 'bot-box':
     await bot.process_commands(ctx)
 
 ################################ OTHER FUNCTIONS ###############################
