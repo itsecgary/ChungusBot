@@ -42,7 +42,7 @@ async def on_command_error(ctx, error):
 @bot.event
 async def on_message(ctx):
     if str(ctx.channel.type) == "private" or ctx.channel.name == 'bot-box':
-    await bot.process_commands(ctx)
+        await bot.process_commands(ctx)
 
 ################################ OTHER FUNCTIONS ###############################
 @bot.command()
